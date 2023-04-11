@@ -21,7 +21,13 @@ public class MyArrayList<T> implements MyList {
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        boolean bool = false;
+        for (int i = 0; i < size; i++) {
+            if (arr[i] == o) {
+                bool = true;
+            }
+        }
+        return bool;
     }
 
     @Override
