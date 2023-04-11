@@ -49,7 +49,14 @@ public class MyArrayList<T> implements MyList {
 
     @Override
     public boolean remove(Object item) {
-        return false;
+        boolean removed = false;
+        for (int i = 0; i < size; i++) {
+            if (arr[i] == item) {
+                remove(i);
+                removed = true;
+            }
+        }
+        return removed;
     }
 
     @Override
