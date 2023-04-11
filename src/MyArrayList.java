@@ -54,6 +54,11 @@ public class MyArrayList<T> implements MyList {
 
     @Override
     public Object remove(int index) {
+        checkIndex(index);
+        for(int i = index + 1; i < size; i++) {
+            arr[i-1] = arr[i];
+        }
+        size--;
         return null;
     }
 
