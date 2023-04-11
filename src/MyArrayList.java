@@ -4,7 +4,7 @@ public class MyArrayList<T> implements MyList {
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
