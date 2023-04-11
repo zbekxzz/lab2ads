@@ -7,6 +7,13 @@ public class MyArrayList<T> implements MyList {
         this.size = 0;
     }
 
+    private void increaseLength() {
+        T[] newArr = (T[]) new Object[arr.length*2];
+        for (int i = 0; i < arr.length; i++) {
+            newArr[i] = arr[i];
+        }
+    }
+
     @Override
     public int size() {
         return size;
