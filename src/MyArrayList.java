@@ -34,7 +34,11 @@ public class MyArrayList<T> implements MyList {
 
     @Override
     public void add(Object item, int index) {
-
+        checkIndex(index);
+        if (size == arr.length) {
+            increaseLength();
+        }
+        arr[index] = (T) item;
     }
 
     @Override
