@@ -12,6 +12,7 @@ public class MyArrayList<T> implements MyList {
         for (int i = 0; i < arr.length; i++) {
             newArr[i] = arr[i];
         }
+        arr = newArr;
     }
 
     @Override
@@ -40,11 +41,14 @@ public class MyArrayList<T> implements MyList {
 
     @Override
     public void add(Object item, int index) {
-        checkIndex(index);
         if (size == arr.length) {
             increaseLength();
         }
+        for (int i = index; i < size; i++) {
+            arr[i+1] = arr[i];
+        }
         arr[index] = (T) item;
+        size++;
     }
 
     @Override
