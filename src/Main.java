@@ -1,15 +1,20 @@
 public class Main {
     public static void main(String[] args) {
         MyArrayList list = new MyArrayList();
-        list.add("Nurali");
+        list.add("Aldiyar");
         list.add("Nurbol");
         list.add("Bekbolat");
-        list.add("Alikhan");
         list.add("Alisher");
         list.add("Nurkuisa");
+        list.add("Nurbol");
         list.add("Dias");
-        System.out.println(list.get(3));
+        System.out.println(list.get(6));
         list.add("Aldiyar", 3);
         System.out.println(list.get(3));
+        System.out.println(list.indexOf("Nurbol"));
+        System.out.println(list.lastIndexOf("Nurbol"));
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
     }
 }

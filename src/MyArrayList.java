@@ -44,10 +44,15 @@ public class MyArrayList<T> implements MyList {
         if (size == arr.length) {
             increaseLength();
         }
-        for (int i = index; i < size; i++) {
-            arr[i+1] = arr[i];
+        T[] newArr = (T[]) new Object[arr.length];
+        for (int i = 0; i < index; i++) {
+            newArr[i] = arr[i];
         }
-        arr[index] = (T) item;
+        for (int i = index; i < size; i++) {
+            newArr[i+1] = arr[i];
+        }
+        newArr[index] = (T) item;
+        arr = newArr;
         size++;
     }
 
@@ -87,12 +92,22 @@ public class MyArrayList<T> implements MyList {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        for (int i = 0; i < size; i++) {
+            if (arr[i] == o) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        for (int i = size - 1; i >= 0; i--) {
+            if (arr[i] == o) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
