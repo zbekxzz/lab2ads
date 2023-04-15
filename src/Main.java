@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        MyArrayList list = new MyArrayList();
+        /* MyArrayList list = new MyArrayList();
         list.add("Aldiyar");
         list.add("Nurbol");
         list.add("Bekbolat");
@@ -16,5 +16,12 @@ public class Main {
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
+        */
+        MyLinkedList lits = new MyLinkedList();
+        lits.add("Muchas");
+        lits.add("Gracias");
+        lits.add("SIU");
+        lits.add("Oficion", 2);
+        System.out.println(lits.contains("SIU"));
     }
 }
