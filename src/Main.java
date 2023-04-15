@@ -9,7 +9,7 @@ public class Main {
         list.add("Nurbol");
         list.add("Dias");
         System.out.println(list.get(6));
-        list.add("Aldiyar", 3);
+        list.add("667", 3);
         System.out.println(list.get(3));
         System.out.println(list.indexOf("Nurbol"));
         System.out.println(list.lastIndexOf("Nurbol"));
