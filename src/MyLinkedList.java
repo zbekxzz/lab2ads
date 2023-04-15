@@ -5,7 +5,7 @@ public class MyLinkedList<T> implements MyList{
         Node<T> prev;
         Node(T val, Node<T> next, Node<T> prev) {
             this.val = val;
-            this.next = null;
+            this.next = next;
             this.prev = prev;
         }
     }
@@ -13,6 +13,11 @@ public class MyLinkedList<T> implements MyList{
     private Node<T> tail;
     private int size;
 
+    public MyLinkedList() {
+        this.head = null;
+        this.tail = null;
+        size = 0;
+    }
     @Override
     public int size() {
         return size;
@@ -25,7 +30,17 @@ public class MyLinkedList<T> implements MyList{
 
     @Override
     public void add(Object item) {
-
+        Node<T> newNode = new Node<T>((T) item, null, null);
+        if (head == null) {
+            head = newNode;
+            tail = head;
+        }
+        else {
+            newNode.prev = tail;
+            tail.next = newNode;
+            tail = newNode;
+        }
+        size++;
     }
 
     @Override
