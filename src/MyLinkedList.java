@@ -64,6 +64,7 @@ public class MyLinkedList<T> implements MyList{
 
     @Override
     public void add(Object item, int index) {
+        checkIndex(index);
         Node<T> newNode = new Node<T>((T) item, null, null);
         if (index == 1) {
             add(item);
@@ -85,12 +86,26 @@ public class MyLinkedList<T> implements MyList{
 
     @Override
     public boolean remove(Object item) {
-        return false;
+        Node<T> newNode = new Node<T>((T) item, null, null);
+        if (head.val == newNode.val) {
+            Node<T> temp = head;
+
+        }
+        Node<T> ptr = head.next;
+
     }
 
     @Override
     public Object remove(int index) {
-        return null;
+        checkIndex(index);
+        if (index == 1) {
+            if (size == 1) {
+                head = null;
+                tail = null;
+                size = 0;
+                return;
+            }
+        }
     }
 
     @Override
@@ -102,6 +117,7 @@ public class MyLinkedList<T> implements MyList{
 
     @Override
     public Object get(int index) {
+        checkIndex(index);
         if (index == 0) {
             return head.val;
         }
@@ -128,6 +144,12 @@ public class MyLinkedList<T> implements MyList{
     @Override
     public void sort() {
 
+    }
+
+    public void checkIndex(int index) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
     }
 }
 

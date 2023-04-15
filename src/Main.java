@@ -26,5 +26,7 @@ public class Main {
         System.out.println(lits.get(3));
         lits.clear();
         System.out.println(lits.size());
+        boolean isSherkesh = true;
+        System.out.println("Beka sherkesh pa? " + isSherkesh);
     }
 }
