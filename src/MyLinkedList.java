@@ -70,7 +70,7 @@ public class MyLinkedList<T> implements MyList{
             return;
         }
         Node<T> ptr = head;
-        for (int i = 2; i <= size; i++) {
+        for (int i = 1; i <= size; i++) {
             if (i == index) {
                 Node<T> temp = ptr.next;
                 ptr.next = newNode;
