@@ -23,5 +23,6 @@ public class Main {
         lits.add("SIU");
         lits.add("Oficion", 2);
         System.out.println(lits.contains("SIU"));
+        lits.printList();
     }
 }

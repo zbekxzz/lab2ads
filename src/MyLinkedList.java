@@ -23,13 +23,22 @@ public class MyLinkedList<T> implements MyList{
         return size;
     }
 
+    public void printList() {
+        Node<T> newNode = head;
+        while (newNode != null) {
+            System.out.print(newNode.val + " ");
+            newNode = newNode.next;
+        }
+        System.out.println();
+    }
+
     @Override
     public boolean contains(Object o) {
         if (head.val == o) {
             return true;
         }
         Node<T> ptr = head.next;
-        for (int i = 2; i <= size; i++) {
+        while (ptr != null) {
             if (ptr.val == o) {
                 return true;
             }
