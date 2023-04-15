@@ -100,6 +100,16 @@ public class MyLinkedList<T> implements MyList{
 
     @Override
     public Object get(int index) {
+        if (index == 0) {
+            return head.val;
+        }
+        Node<T> newNode = head.next;
+        for (int i = 1; i <= size; i++) {
+            if (i == index) {
+                return newNode.val;
+            }
+            newNode = newNode.next;
+        }
         return null;
     }
 
