@@ -88,24 +88,26 @@ public class MyLinkedList<T> implements MyList{
     public boolean remove(Object item) {
         Node<T> newNode = new Node<T>((T) item, null, null);
         if (head.val == newNode.val) {
-            Node<T> temp = head;
-
+            head = head.next;
+            head.prev = null;
+            return true;
         }
         Node<T> ptr = head.next;
-
+        while (ptr != null) {
+            if (ptr.val == newNode.val) {
+                Node<T> temp = ptr.prev;
+                temp.next = ptr.next;
+                Node<T> temp2 = ptr.next;
+                temp2.prev = temp;
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public Object remove(int index) {
-        checkIndex(index);
-        if (index == 1) {
-            if (size == 1) {
-                head = null;
-                tail = null;
-                size = 0;
-                return;
-            }
-        }
+        return null;
     }
 
     @Override

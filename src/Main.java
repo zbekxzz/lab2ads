@@ -22,11 +22,9 @@ public class Main {
         lits.add("Gracias");
         lits.add("SIU");
         lits.add("Oficion", 2);
-        System.out.println(lits.contains("SIU"));
-        System.out.println(lits.get(3));
-        lits.clear();
-        System.out.println(lits.size());
+        lits.printList();
+        System.out.println(lits.remove("Muchas"));
+        lits.printList();
         boolean isSherkesh = true;
-        System.out.println("Beka sherkesh pa? " + isSherkesh);
     }
 }
