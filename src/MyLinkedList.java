@@ -101,6 +101,7 @@ public class MyLinkedList<T> implements MyList{
                 temp2.prev = temp;
                 return true;
             }
+            ptr = ptr.next;
         }
         return false;
     }
