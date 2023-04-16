@@ -31,5 +31,9 @@ public class Main {
         lits.add("Ronaldo", 1);
         lits.printList();
         System.out.println(lits.indexOf("SIU"));
+        lits.add("Gracias");
+        lits.add("Ronaldo");
+        lits.printList();
+        System.out.println(lits.lastIndexOf("Ronaldo"));
     }
 }

@@ -24,12 +24,22 @@ public class MyLinkedList<T> implements MyList{
     }
 
     public void printList() {
-        Node<T> newNode = head;
-        while (newNode != null) {
-            System.out.print(newNode.val + " ");
-            newNode = newNode.next;
+        System.out.print("Doubly Linked List = ");
+        if (size == 0) {
+            System.out.print("empty\n");
+            return;
         }
-        System.out.println();
+        if (head.next == null) {
+            System.out.println(head.val);
+            return;
+        }
+        System.out.print(head.val + " <-> ");
+        Node<T> ptr = head.next;
+        while (ptr.next != null) {
+            System.out.print(ptr.val + " <-> ");
+            ptr = ptr.next;
+        }
+        System.out.print(ptr.val + "\n");
     }
 
     @Override
@@ -90,6 +100,7 @@ public class MyLinkedList<T> implements MyList{
         if (head.val == newNode.val) {
             head = head.next;
             head.prev = null;
+            size--;
             return true;
         }
         Node<T> ptr = head.next;
@@ -99,6 +110,7 @@ public class MyLinkedList<T> implements MyList{
                 temp.next = ptr.next;
                 Node<T> temp2 = ptr.next;
                 temp2.prev = temp;
+                size--;
                 return true;
             }
             ptr = ptr.next;
@@ -187,7 +199,18 @@ public class MyLinkedList<T> implements MyList{
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        Node<T> newNode = new Node<T>((T) o, null, null);
+        if (tail.val == newNode.val) {
+            return size-1;
+        }
+        Node<T> ptr = tail.prev;
+        for (int i = size-1; i >= 1; i--) {
+            if (ptr.val == newNode.val) {
+                return i;
+            }
+            ptr = ptr.prev;
+        }
+        return -1;
     }
 
     @Override
