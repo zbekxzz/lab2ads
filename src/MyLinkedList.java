@@ -107,6 +107,41 @@ public class MyLinkedList<T> implements MyList{
 
     @Override
     public Object remove(int index) {
+        checkIndex(index);
+        if (index == 0) {
+            Object removed = head.val;
+            if (size == 1) {
+                head = null;
+                tail = null;
+                size = 0;
+                return removed;
+            }
+            head = head.next;
+            head.prev = null;
+            size--;
+            return removed;
+        }
+        if (index == size-1) {
+            Object removed = tail.val;
+            tail = tail.prev;
+            tail.next = null;
+            size--;
+            return removed;
+        }
+        Node<T> ptr = head.next;
+        for (int i = 1; i <= size; i++) {
+            if (index == i) {
+                Node<T> p = ptr.prev;
+                Node<T> n = ptr.next;
+                Object removed = ptr.val;
+
+                p.next = n;
+                n.prev = p;
+                size--;
+                return removed;
+            }
+            ptr = ptr.next;
+        }
         return null;
     }
 

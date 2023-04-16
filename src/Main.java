@@ -25,6 +25,7 @@ public class Main {
         lits.printList();
         System.out.println(lits.remove("Muchas"));
         lits.printList();
-        boolean isSherkesh = true;
+        System.out.println(lits.remove(1));
+        lits.printList();
     }
 }
