@@ -27,5 +27,9 @@ public class Main {
         lits.printList();
         System.out.println(lits.remove(1));
         lits.printList();
+        System.out.println(lits.indexOf("SIU"));
+        lits.add("Ronaldo", 1);
+        lits.printList();
+        System.out.println(lits.indexOf("SIU"));
     }
 }
