@@ -23,6 +23,10 @@ public class MyLinkedList<T> implements MyList{
         return size;
     }
 
+    public boolean isEmpty() {
+        return head == null;
+    }
+
     public void printList() {
         System.out.print("Doubly Linked List = ");
         if (size == 0) {
