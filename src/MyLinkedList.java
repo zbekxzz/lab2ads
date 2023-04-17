@@ -28,7 +28,7 @@ public class MyLinkedList<T> implements MyList{
     }
 
     public void printList() {
-        System.out.print("Doubly Linked List = ");
+        System.out.print("Doubly Linked List:  ");
         if (size == 0) {
             System.out.print("empty\n");
             return;
@@ -219,6 +219,9 @@ public class MyLinkedList<T> implements MyList{
 
     @Override
     public void sort() {
+        if (isSortable()) {
+
+        }
 
     }
 
@@ -226,6 +229,29 @@ public class MyLinkedList<T> implements MyList{
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
+    }
+    public boolean isSortable() {
+        Node<T> ptr = head;
+        int intSize = 0;
+        int doubleSize = 0;
+        for (int i = 1; i <= size; i++) {
+            try {
+                int value = (Integer) ptr.val ;
+                intSize++;
+            } catch (ClassCastException e) {
+            }
+            try {
+                double tempD = (Double) ptr.val;
+                doubleSize++;
+            } catch (ClassCastException e) {
+            }
+            ptr = ptr.next;
+        }
+        System.out.println(intSize + " " + doubleSize);
+        if (intSize == size || doubleSize == size || doubleSize + intSize == size) {
+            return true;
+        }
+        return false;
     }
 }
 

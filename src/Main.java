@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class Main {
     public static void main(String[] args) {
         /* MyArrayList list = new MyArrayList();
@@ -18,22 +20,12 @@ public class Main {
         }
         */
         MyLinkedList lits = new MyLinkedList();
-        lits.add("Muchas");
-        lits.add("Gracias");
-        lits.add("SIU");
-        lits.add("Oficion", 2);
+        lits.add(667.7);
+        lits.add(228);
+        lits.add(1337.5);
+        lits.add(1488, 2);
         lits.printList();
-        System.out.println(lits.remove("Muchas"));
-        lits.printList();
-        System.out.println(lits.remove(1));
-        lits.printList();
-        System.out.println(lits.indexOf("SIU"));
-        lits.add("Ronaldo", 1);
-        lits.printList();
-        System.out.println(lits.indexOf("SIU"));
-        lits.add("Gracias");
-        lits.add("Ronaldo");
-        lits.printList();
-        System.out.println(lits.lastIndexOf("Ronaldo"));
+        System.out.println(lits.size());
+        System.out.println(lits.isSortable());
     }
 }
