@@ -220,9 +220,24 @@ public class MyLinkedList<T> implements MyList{
     @Override
     public void sort() {
         if (isSortable()) {
-
+            Node<T> front = head;
+            Node<T> back = null;
+            while (front != null) {
+                back = front.next;
+                while (back != null && back.prev != null && (Integer) back.val < (Integer) back.prev.val) {
+                    swapValue(back, back.prev);
+                    back = back.prev;
+                }
+                front = front.next;
+            }
         }
 
+    }
+
+    public void swapValue(Node<T> first, Node<T> second) {
+        Object value = first.val;
+        first.val = second.val;
+        second.val = (T) value;
     }
 
     public void checkIndex(int index) {

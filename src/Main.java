@@ -20,12 +20,15 @@ public class Main {
         }
         */
         MyLinkedList lits = new MyLinkedList();
-        lits.add(667.7);
+        lits.add(667);
         lits.add(228);
-        lits.add(1337.5);
+        lits.add(1337);
         lits.add(1488, 2);
         lits.printList();
         System.out.println(lits.size());
         System.out.println(lits.isSortable());
+        lits.sort();
+        lits.printList();
+
     }
 }
