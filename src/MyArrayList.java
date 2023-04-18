@@ -7,6 +7,11 @@ public class MyArrayList<T> implements MyList {
         this.size = 0;
     }
 
+    public void printList() {
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i] + "  ");
+        }
+    }
     private void increaseLength() {
         T[] newArr = (T[]) new Object[arr.length*2];
         for (int i = 0; i < arr.length; i++) {

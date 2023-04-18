@@ -2,23 +2,17 @@ import java.util.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
-        /* MyArrayList list = new MyArrayList();
-        list.add("Aldiyar");
-        list.add("Nurbol");
-        list.add("Bekbolat");
-        list.add("Alisher");
-        list.add("Nurkuisa");
-        list.add("Nurbol");
-        list.add("Dias");
-        System.out.println(list.get(6));
-        list.add("667", 3);
-        System.out.println(list.get(3));
-        System.out.println(list.indexOf("Nurbol"));
-        System.out.println(list.lastIndexOf("Nurbol"));
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
-        }
-        */
+        MyArrayList list = new MyArrayList();
+        list.add(228);
+        list.add(667);
+        list.add(677);
+        list.add(1488);
+        list.add(1337);
+        list.add(45);
+        list.add(88);
+        list.printList();
+
+        /*
         MyLinkedList lits = new MyLinkedList();
         lits.add(667);
         lits.add(228);
@@ -30,5 +24,6 @@ public class Main {
         lits.sort();
         lits.printList();
 
+         */
     }
 }
