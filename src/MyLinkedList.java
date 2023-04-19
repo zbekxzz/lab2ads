@@ -132,7 +132,7 @@ public class MyLinkedList<T> implements MyList{
             return;
         }
         Node<T> ptr = head;
-        for (int i = 1; i <= size; i++) {
+        for (int i = 1; i < size; i++) {
             if (i == index) {
                 Node<T> temp = ptr.next;
                 ptr.next = newNode;
@@ -244,7 +244,7 @@ public class MyLinkedList<T> implements MyList{
             return head.val;
         }
         Node<T> newNode = head.next;
-        for (int i = 1; i <= size; i++) {
+        for (int i = 1; i < size; i++) {
             if (i == index) {
                 return newNode.val;
             }
@@ -286,7 +286,7 @@ public class MyLinkedList<T> implements MyList{
             return size-1;
         }
         Node<T> ptr = tail.prev;
-        for (int i = size-1; i >= 1; i--) {
+        for (int i = size-2; i >= 0; i--) {
             if (ptr.val == newNode.val) { // checking if element contains in linked list
                 return i;
             }
@@ -362,7 +362,6 @@ public class MyLinkedList<T> implements MyList{
             }
             ptr = ptr.next;
         }
-        System.out.println(intSize + " " + doubleSize);
         if (intSize == size || doubleSize == size || doubleSize + intSize == size) {
             return true;
         }
