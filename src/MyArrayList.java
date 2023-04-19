@@ -11,6 +11,7 @@ public class MyArrayList<T> implements MyList {
         for (int i = 0; i < size; i++) {
             System.out.print(arr[i] + "  ");
         }
+        System.out.println();
     }
     private void increaseLength() {
         T[] newArr = (T[]) new Object[arr.length*2];
@@ -117,7 +118,30 @@ public class MyArrayList<T> implements MyList {
 
     @Override
     public void sort() {
-
+        if (isSortable().equals("int")) {
+            int n = size;
+            for (int i = 0; i < n-1; i++)
+                for (int j = 0; j < n-i-1; j++)
+                    if ((int) arr[j] > (int) arr[j+1])
+                    {
+                        // swap temp and arr[i]
+                        T temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                    }
+        }
+        if (isSortable().equals("double")) {
+            int n = size;
+            for (int i = 0; i < n-1; i++)
+                for (int j = 0; j < n-i-1; j++)
+                    if ((Double) arr[j] > (Double) arr[j+1])
+                    {
+                        // swap temp and arr[i]
+                        T temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                    }
+        }
     }
     public void checkIndex(int index) {
         if (index < 0 || index >= size) {
@@ -125,7 +149,7 @@ public class MyArrayList<T> implements MyList {
         }
     }
 
-    public boolean isSortable() {
+    public String isSortable() {
         int intSize = 0;
         int doubleSize = 0;
         for (int i = 0; i < size; i++) {
@@ -140,9 +164,12 @@ public class MyArrayList<T> implements MyList {
             } catch (ClassCastException e) {
             }
         }
-        if (intSize == size || doubleSize == size || doubleSize + intSize == size) {
-            return true;
+        if (intSize == size) {
+            return "int";
         }
-        return false;
+        if (doubleSize == size) {
+            return "double";
+        }
+        return "0";
     }
 }
