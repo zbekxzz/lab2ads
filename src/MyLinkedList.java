@@ -19,8 +19,8 @@ public class MyLinkedList<T> implements MyList{
             this.prev = prev;
         }
     }
-    private Node<T> head;
-    private Node<T> tail;
+    private Node<T> head; // head or start of the list
+    private Node<T> tail; // tail or end of the list
     private int size;
 
     /**
@@ -50,7 +50,7 @@ public class MyLinkedList<T> implements MyList{
      * @return boolean
      */
     public boolean isEmpty() {
-        return head == null;
+        return head == null; // returning true if list is empty, false otherwise
     }
 
     /**
@@ -89,7 +89,7 @@ public class MyLinkedList<T> implements MyList{
         }
         Node<T> ptr = head.next;
         while (ptr != null) {
-            if (ptr.val == o) {
+            if (ptr.val == o) { // checking if element contains in linked list
                 return true;
             }
             ptr = ptr.next;
@@ -125,7 +125,7 @@ public class MyLinkedList<T> implements MyList{
      */
     @Override
     public void add(Object item, int index) {
-        checkIndex(index);
+        checkIndex(index); // checking if given index acceptable
         Node<T> newNode = new Node<T>((T) item, null, null);
         if (index == 0) {
             add(item);
@@ -153,7 +153,7 @@ public class MyLinkedList<T> implements MyList{
     @Override
     public boolean remove(Object item) {
         Node<T> newNode = new Node<T>((T) item, null, null);
-        if (head.val == newNode.val) {
+        if (head.val == newNode.val) { // checking if element contains in linked list
             head = head.next;
             head.prev = null;
             size--;
@@ -161,7 +161,7 @@ public class MyLinkedList<T> implements MyList{
         }
         Node<T> ptr = head.next;
         while (ptr != null) {
-            if (ptr.val == newNode.val) {
+            if (ptr.val == newNode.val) { // checking if element contains in linked list
                 Node<T> temp = ptr.prev;
                 temp.next = ptr.next;
                 Node<T> temp2 = ptr.next;
@@ -182,6 +182,7 @@ public class MyLinkedList<T> implements MyList{
     @Override
     public Object remove(int index) {
         checkIndex(index);
+        // checking if given index acceptable
         if (index == 0) {
             Object removed = head.val;
             if (size == 1) {
@@ -238,7 +239,7 @@ public class MyLinkedList<T> implements MyList{
      */
     @Override
     public Object get(int index) {
-        checkIndex(index);
+        checkIndex(index); // checking if given index acceptable
         if (index == 0) {
             return head.val;
         }
@@ -265,7 +266,7 @@ public class MyLinkedList<T> implements MyList{
         }
         Node<T> ptr = head.next;
         for (int i = 1; i <= size; i++) {
-            if (ptr.val == newNode.val) {
+            if (ptr.val == newNode.val) { // checking if element contains in linked list
                 return i;
             }
             ptr = ptr.next;
@@ -281,12 +282,12 @@ public class MyLinkedList<T> implements MyList{
     @Override
     public int lastIndexOf(Object o) {
         Node<T> newNode = new Node<T>((T) o, null, null);
-        if (tail.val == newNode.val) {
+        if (tail.val == newNode.val) { // checking if element equal to tail of linked list
             return size-1;
         }
         Node<T> ptr = tail.prev;
         for (int i = size-1; i >= 1; i--) {
-            if (ptr.val == newNode.val) {
+            if (ptr.val == newNode.val) { // checking if element contains in linked list
                 return i;
             }
             ptr = ptr.prev;
