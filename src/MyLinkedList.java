@@ -1,8 +1,18 @@
 public class MyLinkedList<T> implements MyList{
+    /**
+     * every element is Node which have 3 parameters - value of element, reference to next and previous elements
+     */
     private class Node<T> {
         T val;
         Node<T> next;
         Node<T> prev;
+
+        /**
+         * @function Node - constructor to create Node with given item
+         * @param val - given element to create node
+         * @param next - reference to next Node
+         * @param prev - reference to previous Node
+         */
         Node(T val, Node<T> next, Node<T> prev) {
             this.val = val;
             this.next = next;
@@ -13,20 +23,41 @@ public class MyLinkedList<T> implements MyList{
     private Node<T> tail;
     private int size;
 
+    /**
+     * @function MyLinkedList - constructor that creating new linked list
+     * @noparam
+     * @return void
+     */
     public MyLinkedList() {
         this.head = null;
         this.tail = null;
         size = 0;
     }
+
+    /**
+     * @function size - returning size of linked list
+     * @noparam
+     * @return int
+     */
     @Override
     public int size() {
         return size;
     }
 
+    /**
+     * @function isEmpty - checking is linked list empty or not
+     * @norapam
+     * @return boolean
+     */
     public boolean isEmpty() {
         return head == null;
     }
 
+    /**
+     * @function printList - displaying linked list in console
+     * @noparam
+     * @return void
+     */
     public void printList() {
         System.out.print("Doubly Linked List:  ");
         if (size == 0) {
@@ -46,6 +77,11 @@ public class MyLinkedList<T> implements MyList{
         System.out.print(ptr.val + "\n");
     }
 
+    /**
+     * @function contains - checking and returning true if linked list contains given item, false otherwise
+     * @param o - item to check
+     * @return boolean
+     */
     @Override
     public boolean contains(Object o) {
         if (head.val == o) {
@@ -61,6 +97,11 @@ public class MyLinkedList<T> implements MyList{
         return false;
     }
 
+    /**
+     * @function add - adding element to linked list at tail
+     * @param item - element to add
+     * @return void
+     */
     @Override
     public void add(Object item) {
         Node<T> newNode = new Node<T>((T) item, null, null);
@@ -76,6 +117,12 @@ public class MyLinkedList<T> implements MyList{
         size++;
     }
 
+    /**
+     * @function add - adding element to linked list at specific index
+     * @param item - element to add
+     * @param index - index of element to add
+     * @return void
+     */
     @Override
     public void add(Object item, int index) {
         checkIndex(index);
@@ -98,6 +145,11 @@ public class MyLinkedList<T> implements MyList{
         size++;
     }
 
+    /**
+     * @function remove - deleting element in linked list
+     * @param item - element to delete
+     * @return boolean
+     */
     @Override
     public boolean remove(Object item) {
         Node<T> newNode = new Node<T>((T) item, null, null);
@@ -122,6 +174,11 @@ public class MyLinkedList<T> implements MyList{
         return false;
     }
 
+    /**
+     * @function remove - deleting element at specific index
+     * @param index - index of element to delete
+     * @return Object
+     */
     @Override
     public Object remove(int index) {
         checkIndex(index);
@@ -162,6 +219,11 @@ public class MyLinkedList<T> implements MyList{
         return null;
     }
 
+    /**
+     * @function clear - clearing all linked list by creating new
+     * @noparam
+     * @return void
+     */
     @Override
     public void clear() {
         this.head = null;
@@ -169,6 +231,11 @@ public class MyLinkedList<T> implements MyList{
         size = 0;
     }
 
+    /**
+     * @function get - returning element in linked list by specific index
+     * @param index - index of element to get
+     * @return Object
+     */
     @Override
     public Object get(int index) {
         checkIndex(index);
@@ -185,6 +252,11 @@ public class MyLinkedList<T> implements MyList{
         return null;
     }
 
+    /**
+     * @function indexOf - returning index of given element in linked list
+     * @param o - element to find
+     * @return int
+     */
     @Override
     public int indexOf(Object o) {
         Node<T> newNode = new Node<T>((T) o, null, null);
@@ -201,6 +273,11 @@ public class MyLinkedList<T> implements MyList{
         return -1;
     }
 
+    /**
+     * @function lastIndexOf - returning last index of given element in linked list
+     * @param o - element to find
+     * @return - int
+     */
     @Override
     public int lastIndexOf(Object o) {
         Node<T> newNode = new Node<T>((T) o, null, null);
@@ -217,6 +294,11 @@ public class MyLinkedList<T> implements MyList{
         return -1;
     }
 
+    /**
+     * @function sort - sorting elements by insertion sort
+     * @noparam
+     * @return void
+     */
     @Override
     public void sort() {
         if (isSortable()) {
@@ -234,17 +316,34 @@ public class MyLinkedList<T> implements MyList{
 
     }
 
+    /**
+     * @function swapValue - function to swap two Nodes, used in sort
+     * @param first - first node
+     * @param second - second node
+     * @return void
+     */
     public void swapValue(Node<T> first, Node<T> second) {
         Object value = first.val;
         first.val = second.val;
         second.val = (T) value;
     }
 
+    /**
+     * @function checkIndex - checking given index, throw error if index not acceptable
+     * @param index - index to check
+     * @return void
+     */
     public void checkIndex(int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
     }
+
+    /**
+     * @function isSortable - checking if linked list contains all integers or doubles
+     * @noparam
+     * @return boolean
+     */
     public boolean isSortable() {
         Node<T> ptr = head;
         int intSize = 0;
