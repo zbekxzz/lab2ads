@@ -1,30 +1,85 @@
-import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        MyArrayList list = new MyArrayList();
-        list.add(228);
-        list.add(667);
-        list.add(677);
-        list.add(1488);
-        list.add(1337);
-        list.add(45);
-        list.add(88);
-        list.printList();
-        list.sort();
-        list.printList();
-        /*
-        MyLinkedList lits = new MyLinkedList();
-        lits.add(667);
-        lits.add(228);
-        lits.add(1337);
-        lits.add(1488, 2);
-        lits.printList();
-        System.out.println(lits.size());
-        System.out.println(lits.isSortable());
-        lits.sort();
-        lits.printList();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Salamaleksus!\n" +
+                "Choose what class you want to check\n" +
+                "MyArrayList -> 1\n" +
+                "MyLinkedList -> 2\n" +
+                "Enter your choice: ");
+        int ans = sc.nextInt();
+        if (ans == 1) testingArrayList();
+        else testingLinkedList();
+    }
+    public static void testingArrayList() {
+        Scanner sc = new Scanner(System.in);
+        MyArrayList arrayList = new MyArrayList();
+        System.out.println("\nLet's start testing with MyArrayList of integers\n" +
+                "> Size of array: " + arrayList.size() + "\n" +
+                "Add some values in array (if you want to sort it at the end add only integers or only doubles)\n" +
+                "Enter '-1' to stop typing");
+        int input;
+        while (true) {
+            input = sc.nextInt();
+            if (input == -1) break;
+            arrayList.add(input);
+        }
+        System.out.print("> Your array: ");
+        arrayList.printList();
+        System.out.println("> Size of array: " + arrayList.size());
 
-         */
+        System.out.print("\nLet's add an element at specific index. Enter element and index separated by space: ");
+        input = sc.nextInt();
+        int index = sc.nextInt();
+        arrayList.add(input, index);
+        System.out.print("> Your array: ");
+        arrayList.printList();
+
+        System.out.print("\nLet's delete your element with index. Enter index: ");
+        index = sc.nextInt();
+        System.out.println("> You deleted - " + arrayList.remove(index));
+        System.out.print("> Your array: ");
+        arrayList.printList();
+
+        System.out.print("\nLet's delete your element without knowing index. Enter your element: ");
+        input = sc.nextInt();
+        System.out.println("> Your element was deleted - " + arrayList.remove((Object) input));
+        System.out.print("> Your array: ");
+        arrayList.printList();
+
+        System.out.print("\nNow let's find out if the element you entered is in the array. Enter your element: ");
+        input = sc.nextInt();
+        System.out.println("> Your element is in array - " + arrayList.contains((input)));
+        System.out.print("> Your array: ");
+        arrayList.printList();
+
+        System.out.print("\nAnd now let's find out the first index of the occurrence of the element you entered in the array. Enter your element: ");
+        input = sc.nextInt();
+        System.out.println("> Your element's index - " + arrayList.indexOf(input));
+        System.out.print("> Your array: ");
+        arrayList.printList();
+
+        System.out.print("\nNow let's find out the last index of the occurrence of the element you entered in the array. Enter your element: ");
+        input = sc.nextInt();
+        System.out.println("> Your element's last index - " + arrayList.lastIndexOf(input));
+        System.out.print("> Your array: ");
+        arrayList.printList();
+
+        System.out.print("\nLet's try to find out your element with index. Enter your index: ");
+        index = sc.nextInt();
+        System.out.println("> Your element is - " + arrayList.get(index));
+        System.out.print("> Your array: ");
+        arrayList.printList();
+
+        System.out.print("\nNow, let's sort your array!\n> Your array before sort - ");
+        arrayList.printList();
+        arrayList.sort();
+        System.out.print("> Your array after sort - ");
+        arrayList.printList();
+    }
+    public static void testingLinkedList() {
+        Scanner sc = new Scanner(System.in);
+
     }
 }
