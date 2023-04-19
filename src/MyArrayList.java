@@ -124,4 +124,25 @@ public class MyArrayList<T> implements MyList {
             throw new IndexOutOfBoundsException();
         }
     }
+
+    public boolean isSortable() {
+        int intSize = 0;
+        int doubleSize = 0;
+        for (int i = 0; i < size; i++) {
+            try {
+                int value = (Integer) arr[i];
+                intSize++;
+            } catch (ClassCastException e) {
+            }
+            try {
+                double tempD = (Double) arr[i];
+                doubleSize++;
+            } catch (ClassCastException e) {
+            }
+        }
+        if (intSize == size || doubleSize == size || doubleSize + intSize == size) {
+            return true;
+        }
+        return false;
+    }
 }

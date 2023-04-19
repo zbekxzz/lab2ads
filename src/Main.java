@@ -11,7 +11,7 @@ public class Main {
         list.add(45);
         list.add(88);
         list.printList();
-
+        System.out.println(list.isSortable());
         /*
         MyLinkedList lits = new MyLinkedList();
         lits.add(667);
